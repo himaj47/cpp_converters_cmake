@@ -12,6 +12,11 @@ function(convert_to_ros_msg TARGET_NAME FILE)
     VERBATIM
     COMMENT "Generating message description from ${FILE}"
     )
+
+    install(
+        FILES ${msg_description}
+        DESTINATION share/${PROJECT_NAME}/msg_descriptions
+    )
  
     add_custom_target(${TARGET_NAME}
         DEPENDS ${msg_description}
